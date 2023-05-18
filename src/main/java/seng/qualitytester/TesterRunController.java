@@ -15,6 +15,7 @@ import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.AnchorPane;
 
+import javafx.scene.layout.GridPane;
 import javafx.stage.Stage;
 import seng.qualitytester.Metrics.*;
 
@@ -24,6 +25,8 @@ import java.util.*;
 public class TesterRunController{
     private UserData uData;
 
+    @FXML
+    private GridPane gridResults;
 
     @FXML
     private TableView<Results> ResultsTable;
@@ -120,6 +123,14 @@ public class TesterRunController{
                 }
             }
         }
+    }
+
+    @FXML
+    public void initialize(){
+        AnchorPane.setRightAnchor(gridResults, 0.0);
+        AnchorPane.setTopAnchor(gridResults, 0.0);
+        AnchorPane.setLeftAnchor(gridResults, 0.0);
+        AnchorPane.setBottomAnchor(gridResults, 0.0);
     }
 
     @FXML
