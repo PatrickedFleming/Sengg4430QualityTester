@@ -61,14 +61,11 @@ public class TesterHomeController {
     @FXML
     public void initialize() {
 
-        AllTickBox.selectedProperty().addListener(new ChangeListener<>() {
-            @Override
-            public void changed(ObservableValue<? extends Boolean> observable, Boolean oldValue, Boolean newValue) {
-                items = TableViewID.getItems();
+        AllTickBox.selectedProperty().addListener((observable, oldValue, newValue) -> {
+            items = TableViewID.getItems();
 
-                for (MetricsData item : items) {
-                    item.getRemark().setSelected(AllTickBox.isSelected());
-                }
+            for (MetricsData item : items) {
+                item.getRemark().setSelected(AllTickBox.isSelected());
             }
         });
 
@@ -99,7 +96,7 @@ public class TesterHomeController {
     }
 
     @FXML
-    public void RunTests(MouseEvent event) {
+    public void RunTests() {
         items = TableViewID.getItems();
         List<String> mets = new ArrayList<>();
         for(MetricsData item : items){
@@ -116,14 +113,17 @@ public class TesterHomeController {
         UserData send = new UserData(mets, inDir);
 
 
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("TesterRun.fxml"));
-        Parent root;
+
         try {
-            root = loader.load();
-            TesterRunController runTestCon = new TesterRunController();
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("TesterRun.fxml"));
+            Parent root = loader.load();
+
+            TesterRunController runTestCon = loader.getController();
             runTestCon.setData(send);
+
             Stage stage = (Stage) AnchorHomeID.getScene().getWindow();
             Scene scene = new Scene(root);
+
             stage.setScene(scene);
             stage.show();
         } catch (IOException e) {
