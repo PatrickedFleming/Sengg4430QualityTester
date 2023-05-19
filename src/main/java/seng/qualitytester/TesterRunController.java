@@ -83,6 +83,14 @@ public class TesterRunController{
                         table.add(in);
                     }
                 }
+                case "DOCN" -> {
+                    DOCN docn = new DOCN(javaFiles);
+                    Map<String, Integer> DOCNResults = docn.calculateDepthOfConditionalNesting();
+                    for (Map.Entry<String, Integer> enter : DOCNResults.entrySet()) {
+                        Results in = new Results(enter.getKey(), "Depth of Conditional Nesting", enter.getValue());
+                        table.add(in);
+                    }
+                }
                 case "DOI" -> {
                     DOI doi = new DOI(javaFiles);
                     Map<String, Integer> DOIResults = doi.calculateDepthOfInheritance();

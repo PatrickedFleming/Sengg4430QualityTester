@@ -76,7 +76,7 @@ public class TesterHomeController {
         tableD.add(new MetricsData("Cyclomatic Complexity", "Asad", "CC"));
         tableD.add(new MetricsData("Depth of Inheritance", "Patrick", "DOI"));
         tableD.add(new MetricsData("Number of Children", "Patrick", "NOC"));
-        tableD.add(new MetricsData("Depth of Conditional Nesting", "Harrison", ""));
+        tableD.add(new MetricsData("Depth of Conditional Nesting", "Harrison", "DOCN"));
         tableD.add(new MetricsData("Response for a Class (RFC)", "Harrison", "RFC"));
 
         ObservableList<MetricsData> data = FXCollections.observableArrayList(tableD);
