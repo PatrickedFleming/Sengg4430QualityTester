@@ -8,12 +8,14 @@ import javafx.stage.Stage;
 
 import java.util.Objects;
 
+//Main class that runs the Application
 public class Main extends Application {
 
     public static void main(String[] args) {
         launch(args);
     }
 
+    //Starts the first stage and sets the scene and home controller
     @Override
     public void start(Stage primaryStage){
         Parent root = null;

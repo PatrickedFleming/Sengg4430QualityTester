@@ -22,6 +22,8 @@ import seng.qualitytester.Metrics.*;
 import java.io.IOException;
 import java.util.*;
 
+//Controller class for the run tests scene
+//gets data from home screen and runs through metrics selected and displays results
 public class TesterRunController{
     private UserData uData;
 
@@ -42,12 +44,14 @@ public class TesterRunController{
     private final  ObservableList<Results> table = FXCollections.observableArrayList();
 
 
+    //use get data from Home scene and runs the test on data and populates table with results
     public void setData(UserData in){
         uData = in;
         runMetricTests();
         populateTable();
     }
 
+    //runs the metric tests selected
     private void runMetricTests(){
         List<String> chosenMets = uData.getMetList();
         String dir = uData.getDirectory();
@@ -67,8 +71,8 @@ public class TesterRunController{
 
 
         for(String mets: chosenMets){
-            //Cyclomatic Complexity
             switch (mets) {
+                //Cyclomatic Complexity
                 case "CC" -> {
                     for (Map.Entry<String, String> enter : javaFiles.entrySet()) {
                         int CyclomaticComplexity = CC.calculateCyclomaticComplexity(enter.getValue());
@@ -76,6 +80,7 @@ public class TesterRunController{
                         table.add(in);
                     }
                 }
+                //Comment Counter
                 case "CommentCounter" -> {
                     for (Map.Entry<String, String> enter : filesDir.entrySet()) {
                         int commentCount = CommentCounter.countComments(enter.getValue());
@@ -83,6 +88,7 @@ public class TesterRunController{
                         table.add(in);
                     }
                 }
+                //Depth Of Conditional Nesting
                 case "DOCN" -> {
                     DOCN docn = new DOCN(javaFiles);
                     Map<String, Integer> DOCNResults = docn.calculateDepthOfConditionalNesting();
@@ -91,6 +97,7 @@ public class TesterRunController{
                         table.add(in);
                     }
                 }
+                //Depth of Inheritance
                 case "DOI" -> {
                     DOI doi = new DOI(javaFiles);
                     Map<String, Integer> DOIResults = doi.calculateDepthOfInheritance();
@@ -99,6 +106,7 @@ public class TesterRunController{
                         table.add(in);
                     }
                 }
+                //Fog Index Calculator
                 case "FogIndexCalculator" -> {
                     for (Map.Entry<String, String> enter : filesDir.entrySet()) {
                         double result = FogIndexCalculator.calculateFogIndex(enter.getValue());
@@ -106,6 +114,7 @@ public class TesterRunController{
                         table.add(in);
                     }
                 }
+                //Number of Children
                 case "NOC" -> {
                     NOC noc = new NOC(javaFiles);
                     Map<String, Integer> nocR = noc.calculateNumberOfChildren();
@@ -114,6 +123,7 @@ public class TesterRunController{
                         table.add(in);
                     }
                 }
+                //Response for a Class
                 case "RFC" -> {
                     RFC rfc = new RFC(javaFiles);
                     Map<String, Integer> rfcR = rfc.calculateResponseForClass();
@@ -122,6 +132,7 @@ public class TesterRunController{
                         table.add(in);
                     }
                 }
+                //Weighted methods per class
                 case "WMC" -> {
                     for (Map.Entry<String, String> enter : javaFiles.entrySet()) {
                         int WMCResults = WMC.calculate(enter.getValue());
@@ -133,6 +144,7 @@ public class TesterRunController{
         }
     }
 
+    //locks elements in scene to pane so that they transform with window size/ manipulation
     @FXML
     public void initialize(){
         AnchorPane.setRightAnchor(gridResults, 0.0);
@@ -141,11 +153,13 @@ public class TesterRunController{
         AnchorPane.setBottomAnchor(gridResults, 0.0);
     }
 
+    //exports results to Excel file
     @FXML
     void exportToExcell() {
         ExcellSave.exportToExcel(ResultsTable, (Stage) AnchorPaneResultsID.getScene().getWindow());
     }
 
+    //goes back to previous scene
     @FXML
     public void backButton(){
 
@@ -163,6 +177,7 @@ public class TesterRunController{
         }
     }
 
+    //populates the table with the results
     private void populateTable(){
         fileNameColumn.setCellValueFactory(new PropertyValueFactory<>("fName"));
         metricNameColumn.setCellValueFactory(new PropertyValueFactory<>("mName"));

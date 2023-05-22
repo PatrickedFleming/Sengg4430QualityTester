@@ -21,6 +21,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 
+//controls the home scene and gets the data needed to run metric tests
 public class TesterHomeController {
     //references to objects in gui
     @FXML
@@ -56,7 +57,7 @@ public class TesterHomeController {
         }
     }
 
-    //controlling the population of table and the
+    //controlling the population of table and the selection of metrics
     @FXML
     public void initialize() {
 
@@ -94,6 +95,7 @@ public class TesterHomeController {
 
     }
 
+    //gets the data selected and sends it to run tests scene and switches scenes
     @FXML
     public void RunTests() {
         items = TableViewID.getItems();
@@ -130,11 +132,14 @@ public class TesterHomeController {
         }
     }
 
+
+    //check to see if directory is valid
     private boolean isDirectoryValid(String directory) {
         File file = new File(directory);
         return file.exists() && file.isDirectory();
     }
 
+    //alert for invalid directory
     private void showAlert() {
         Alert alert = new Alert(Alert.AlertType.ERROR);
         alert.setTitle("Invalid Directory");
