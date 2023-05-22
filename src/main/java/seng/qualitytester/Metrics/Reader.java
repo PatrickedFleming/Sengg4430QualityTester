@@ -5,8 +5,8 @@ import java.io.*;
 import java.util.*;
 
 /*Reader class used to recurse through directory and get all files to be tested
-And stores  a map with the name of the file and the code and
-A map of the file name and directory */
+And stores  a map with the name of the files and the code and
+A map of the files and directory */
 public class Reader {
     private final Map<String, String> javaFiles;
     private final Map<String, String> filesDir;
