@@ -17,7 +17,7 @@ import javafx.scene.layout.AnchorPane;
 
 import javafx.scene.layout.GridPane;
 import javafx.stage.Stage;
-import seng.qualitytester.Metrics.*;
+import seng.qualitytester.metrics.*;
 
 import java.io.IOException;
 import java.util.*;
@@ -99,7 +99,7 @@ public class TesterRunController{
                 }
                 //Depth of Inheritance
                 case "DOI" -> {
-                    DOI doi = new DOI(javaFiles);
+                    seng.qualitytester.Metrics.DOI doi = new seng.qualitytester.Metrics.DOI(javaFiles);
                     Map<String, Integer> DOIResults = doi.calculateDepthOfInheritance();
                     for (Map.Entry<String, Integer> enter : DOIResults.entrySet()) {
                         Results in = new Results(enter.getKey(), "Depth of Inheritance", enter.getValue());
