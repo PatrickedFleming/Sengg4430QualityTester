@@ -3,12 +3,14 @@ package seng.qualitytester;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.scene.control.CheckBox;
 
+//Class used hold metrics data, so it can be sent to new scene
 public class MetricsData {
     private final SimpleStringProperty metric;
     private final SimpleStringProperty name;
     private final SimpleStringProperty code;
     private CheckBox remark;
 
+    //Constructor
     MetricsData (String mName, String pName,String cName){
         this.metric = new SimpleStringProperty(mName);
         this.name = new SimpleStringProperty(pName);
@@ -16,6 +18,7 @@ public class MetricsData {
         this.remark = new CheckBox();
     }
 
+    //Getters and Setters
     public String getMetric(){
         return metric.get();
     }

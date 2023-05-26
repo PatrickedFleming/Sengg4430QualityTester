@@ -1,6 +1,7 @@
 package seng.qualitytester;
 
 
+//Results Class used to Hold results of Metric Tests
 public class Results {
     private final String fName;
     private final String mName;
@@ -8,6 +9,7 @@ public class Results {
     private double dResult;
     private final int doubleorInt;
 
+    //Constructors one for int Results one for double
     Results(String file, String metric, int in){
         fName = file;
         mName = metric;
@@ -22,6 +24,7 @@ public class Results {
         doubleorInt = 0;
     }
 
+    //Getters
     public String getFName(){
         return fName;
     }
@@ -42,6 +45,7 @@ public class Results {
         return doubleorInt;
     }
 
+    //Print override so you can just print results to terminal
     @Override
     public String toString(){
         if(doubleorInt == 1) {

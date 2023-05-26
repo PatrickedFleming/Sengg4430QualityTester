@@ -69,7 +69,7 @@ public class TesterRunController{
         Map<String, String> filesDir = read.getFilesDir();
 
 
-
+        //Goes through selected Metrics running tests if they have been selected
         for(String mets: chosenMets){
             switch (mets) {
                 //Cyclomatic Complexity

@@ -1,13 +1,12 @@
 package seng.qualitytester.Metrics;
+//Created by Asad Ullah Awan
+//Email: C3421072@uon.edu.au
 
-import java.io.IOException;
-import java.nio.file.Files;
-import java.nio.file.Paths;
 
+//WMC stands for Weighted Methods Per Class
 public class WMC {
 
     // Define the weight of a method based on its cyclomatic complexity
-
     public static int calculate(String classCode) {
         int wmc = 0;
 

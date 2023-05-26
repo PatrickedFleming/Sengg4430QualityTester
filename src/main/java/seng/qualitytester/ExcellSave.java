@@ -10,7 +10,10 @@ import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
 
+//Exports the table of results from tests as a CSV file
 public class ExcellSave {
+
+    //Gets location of save through file choose then writes results to file
     public static void exportToExcel(TableView<Results> table, Stage primaryStage) {
         FileChooser fileChooser = new FileChooser();
         fileChooser.setTitle("Save Excel File");

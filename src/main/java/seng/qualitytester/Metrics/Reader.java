@@ -18,7 +18,7 @@ public class Reader {
         processDirectory(new File(directory));
     }
 
-    //recurses through directory give and populates maps with java files, code and directory
+    //recurse through directory give and populates maps with java files, code and directory
     private void processDirectory(File dir) throws IOException {
         File[] files = dir.listFiles();
         if (files != null) {

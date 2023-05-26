@@ -69,6 +69,7 @@ public class TesterHomeController {
             }
         });
 
+        //Populates Table with Metrics for Scene
         List<MetricsData> tableD = new ArrayList<>();
 
         tableD.add(new MetricsData("The Gunning Fog Index", "Sina", "FogIndexCalculator"));
@@ -81,13 +82,15 @@ public class TesterHomeController {
         tableD.add(new MetricsData("Response for a Class (RFC)", "Harrison", "RFC"));
 
         ObservableList<MetricsData> data = FXCollections.observableArrayList(tableD);
-
+        //Sets what is selected from Metrics Data and displayed on table
         metrics.setCellValueFactory(new PropertyValueFactory<>("metric"));
         names.setCellValueFactory(new PropertyValueFactory<>("name"));
         selects.setCellValueFactory(new PropertyValueFactory<>("remark"));
 
+        //Updates table view with all the metrics data
         TableViewID.setItems(data);
 
+        //locks elements of scene to aplication window so that when it is manipulated the scene does as well
         AnchorPane.setRightAnchor(gridPane, 0.0);
         AnchorPane.setTopAnchor(gridPane, 0.0);
         AnchorPane.setLeftAnchor(gridPane, 0.0);

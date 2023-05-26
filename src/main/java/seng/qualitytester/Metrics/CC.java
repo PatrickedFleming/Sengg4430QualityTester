@@ -1,6 +1,11 @@
 package seng.qualitytester.Metrics;
+//Created by Asad Ullah Awan
+//Email: C3421072@uon.edu.au
 
+//CC stands for Cyclomatic Complexity
 public class CC {
+
+	//Counts Cyclomatic Complexity by predicates
 	public static int calculateCyclomaticComplexity(String code) {
 		int complexity = 0;
 		String[] lines = code.split("\n");

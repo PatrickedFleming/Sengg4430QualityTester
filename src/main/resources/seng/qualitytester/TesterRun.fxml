@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-
+<!--Fxml class used to set design elements of Scene
+TesterRun is the fxml class for the scene responsible for running tests and displaying results-->
 <?import javafx.geometry.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
